@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - 8090:8080
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home
+    networks:
+      - net
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:9.1.0-community
+    ports:
+      - 9000:9000
+    volumes:
+      - ./sonarqube_home/data:/opt/sonarqube/data
+      - ./sonarqube_home/extensions:/opt/sonarqube/extensions
+      - ./sonarqube_home/logs:/opt/sonarqube/logs
+      - ./sonarqube_home/temp:/opt/sonarqube/temp
+    networks:
+      - net
+networks:
+  net:

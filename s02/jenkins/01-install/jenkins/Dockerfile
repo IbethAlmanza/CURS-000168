@@ -1,11 +1,7 @@
-FROM jenkins/jenkins
+FROM jenkins/jenkins:lts
 
 USER root
 
-# Instala ansible
-#RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && python get-pip.py
-
-#RUN pip install -U ansible
 
 # Instala Docker
 
@@ -26,13 +22,5 @@ apt-get -y install docker-ce
 # Compose
 
 RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
-
-
-#VOLUME [ "/var/run/docker.sock" ]
-#RUN touch /var/run/docker.sock
-
-RUN usermod -aG docker jenkins && \
-    usermod -aG root jenkins
-    #chown jenkins /var/run/docker.sock
 
 USER jenkins

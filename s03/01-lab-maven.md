@@ -42,7 +42,7 @@
                 * Kind: Username with Password
                 * id: token_github
                 * Username: IbethAlmanza
-                * Password:  
+                * Password:  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
             * Branch: */main
         * Build --> Invoke top-level Maven targets --> 
         * Maven version: maven-default

@@ -37,7 +37,7 @@
         * Nombre: job6-maven
         * Description: Maven demo
         * Source Code Management: Git
-            * Repository: https://github.com/aldo2510/galaxy-jenkins-lab-maven.git
+            * Repository: https://github.com/IbethAlmanza/galaxy-jenkins-lab-maven.git
             * Branch: */main
         * Build --> Invoke top-level Maven targets --> 
         * Maven version: maven-default

@@ -1,30 +1,32 @@
-# Node
+# Maven
 ## Settings
 
-1. Instalar plugins Node
-    1. Login
-    1. Manage Jenkins
-    1. Manage Plugins
-    1. Clic Avialable
-    1. Buscar Plugin: "NodeJS"
-    1. Clic en Install without restart
-
-1. Instalar nodejs
-    1. Manage Jenkins
-    1. Global Tool Configuration
-    1. Ir a la sección: "NodeJS"
-    1. Clic en "Add NodeJS"
-        * Name: node-default
+1. Instalar plugins maven
+     i. Login
+    ii. Manage Jenkins
+   iii. Manage Plugins
+    iv. Clic Avialable
+     v. Buscar Plugin: "Maven Integration"
+    vi. Buscar Plugin: "Git"
+    vi. Buscar Plugin: "JUnit Attachments"
+    vi. Clic en Install Without restart
+   
+1. Instalar maven
+    i. Manage Jenkins
+   ii. Global Tool Configuration
+  iii. Ir a la sección: "Maven"
+   iv. Clic en "Add NodeJS"
+        * Name: maven-default
         * Install automatically: Check
-        * Version: 16.11.1
+    v. Clic en Save
 
 ## JOBS
-1. Crear 07-nodejs-job
+1. Crear 06-job-maven
     * Crear proyecto del estilo libre.
-        * Nombre: 07-nodejs-job
+        * Nombre: 06-job-maven
         * Description: Node demo
-        * Build Environment: Provide Node & npm bin/ folder to PATH
-        * Build --> add execute shell --> 
+        * Build --> Invoke top-level Maven targets -->
+        * Goals: 
         ```shell         
         npm version
         ```        
@@ -38,4 +40,5 @@
         console.log("ok");
         console.log(process.version);
         ```  
+
 

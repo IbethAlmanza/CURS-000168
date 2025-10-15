@@ -1,44 +1,55 @@
 # Maven
 ## Settings
-
 1. Instalar plugins maven
-     i. Login
-    ii. Manage Jenkins
-   iii. Manage Plugins
-    iv. Clic Avialable
-     v. Buscar Plugin: "Maven Integration"
-    vi. Buscar Plugin: "Git"
-    vi. Buscar Plugin: "JUnit Attachments"
-    vi. Clic en Install Without restart
-   
+    1. Login
+    1. Manage Jenkins
+    1. Manage Plugins
+    1. Clic Avialable
+    1. Buscar Plugin: "Maven Integration"
+    1. Buscar Plugin: "Git"
+    1. Buscar Plugin: "JUnit Attachments"
+    1. Clic en Install Without restart
+    
 1. Instalar maven
-    i. Manage Jenkins
-   ii. Global Tool Configuration
-  iii. Ir a la sección: "Maven"
-   iv. Clic en "Add NodeJS"
+    1. Manage Jenkins
+    1. Global Tool Configuration
+    1. Ir a la sección: "Maven"
+    1. Clic en "Add Maven"
         * Name: maven-default
         * Install automatically: Check
-    v. Clic en Save
+    1. Clic en Save
 
-## JOBS
+
+
+# JOBS
 1. Crear 06-job-maven
     * Crear proyecto del estilo libre.
         * Nombre: 06-job-maven
-        * Description: Node demo
-        * Build --> Invoke top-level Maven targets -->
-        * Goals: 
-        ```shell         
-        npm version
-        ```        
-
-1. Crear 07-script-nodejs-job
+        * Description: Maven demo
+        * Build --> Invoke top-level Maven targets --> 
+        * Maven version: maven-default
+        * Goals:
+        ```bash         
+        mvn --version
+        ```
+1. Update job6-maven
     * Crear proyecto del estilo libre.
-        * Nombre: 07-script-nodejs-job
-        * Description: Node demo
-        * Build --> Execute NodeJS script --> 
-        ```shell         
-        console.log("ok");
-        console.log(process.version);
-        ```  
-
-
+        * Nombre: job6-maven
+        * Description: Maven demo
+        * Source Code Management: Git
+            * Repository: https://github.com/aldo2510/galaxy-jenkins-lab-maven.git
+            * Branch: */main
+        * Build --> Invoke top-level Maven targets --> 
+        * Maven version: maven-default
+        * Goals
+        ```bash         
+        package
+        ```
+        * Post-buil Actions
+            * Add post build actions: Archive the artifacts
+            * Files to archive: target/*.jar
+1. Update job6-maven
+    * Nombre: job6-maven
+    * Post-buil Actions
+        * Add Publish JUnit test result report
+            * Test report XMLs: target/surefire-reports/*.xml

@@ -38,6 +38,11 @@
         * Description: Maven demo
         * Source Code Management: Git
             * Repository: https://github.com/IbethAlmanza/galaxy-jenkins-lab-maven.git
+            * Add credentials:
+                * Kind: Username with Password
+                * id: token_github
+                * Username: IbethAlmanza
+                * Password:  
             * Branch: */main
         * Build --> Invoke top-level Maven targets --> 
         * Maven version: maven-default
